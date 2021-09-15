@@ -14,9 +14,6 @@ import { OrderDetail } from "@app/_models/order.detail";
   })
 export class OrderSummaryComponent implements OnInit{
 
-    displayedColumns: string[] = ['sno', 'itemdesc', 'rate', 'quantity','price'];
-    dataSource = new MatTableDataSource<OrderSummaryItemData>();
-    clickedRows = new Set<OrderSummaryItemData>();
     isDataLoaded : boolean = false;
     orderId : number;
     data : OrderSummaryData;
@@ -62,9 +59,8 @@ export class OrderSummaryComponent implements OnInit{
                         price : element.quantity * element.price
                     };
                     this.data.items.push(itemData);
-                });
-                this.dataSource.data = this.data.items;
-                this.dataSource.data.forEach(d => {
+                });                
+                this.data.items.forEach(d => {
                     this.amountBeforeTax = this.amountBeforeTax + d.price;
                 });
                 this.isDataLoaded = true;
@@ -72,8 +68,8 @@ export class OrderSummaryComponent implements OnInit{
             this.isDisabled = true;
         }else{
             this.accountService.getOrderDetails().subscribe(orderDetail => {
-                this.dataSource.data = orderDetail.items;
-                this.dataSource.data.forEach(d => {
+                this.data.items = orderDetail.items;
+                orderDetail.items.forEach(d => {
                     this.amountBeforeTax = this.amountBeforeTax + d.price;
                 });
                 this.data.tax = 5;
@@ -82,10 +78,6 @@ export class OrderSummaryComponent implements OnInit{
             });
             this.isDisabled = false;
         }
-    }
-
-    public doFilter = (value: string) => {
-        this.dataSource.filter = value.trim().toLocaleLowerCase();
     }
     
     public submitOrderdetails() {
@@ -101,7 +93,7 @@ export class OrderSummaryComponent implements OnInit{
             totalAmount :this.data.totalPrice
             }
 
-            this.dataSource.data.forEach(item => {
+            this.data.items.forEach(item => {
                 let itemP : OrderDetail = {
                     productId: item.id,
                     quantity: item.quantity,

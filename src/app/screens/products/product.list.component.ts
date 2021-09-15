@@ -12,10 +12,10 @@ import { OrderProductService } from '@app/_services/order.product.service';
  * @title Binding event handlers and properties to the table rows.
  */
 @Component({
-  selector: 'dashboard-component',
-  templateUrl: 'dashboard.component.html',
+  selector: 'product.list-component',
+  templateUrl: 'product.list.component.html',
 })
-export class DashboardComponent implements OnInit{
+export class ProductList implements OnInit{
   displayedColumns: string[] = ['id', 'name', 'brand', 'price','availablequantity','check'];
   dataSource = new MatTableDataSource<Tabledata>();
   clickedRows = new Set<Tabledata>();

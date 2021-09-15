@@ -1,0 +1,140 @@
+<div class="container">
+  <h1 class="mb-4 text-muted">Dashboard </h1>
+  <div class="row">
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Revenue</p>
+              <h4 class="card-text text-right ">$ 199,099</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-success ml-auto">
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            5,35%
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Orders</p>
+              <h4 class="card-text text-right ">2,200</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-success ml-auto">
+            <i class="fa fa-caret-up" aria-hidden="true"></i>
+            8,66%
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fa fa-users" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Distributors</p>
+              <h4 class="card-text text-right ">702,258</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-danger ml-auto">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            2,81%
+          </small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+<div *ngIf="isDataLoaded">
+<div fxLayout fxLayoutAlign="center center">
+    <mat-form-field fxFlex="40%">
+      <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+      
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <!-- Brand Column -->
+    <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef>Brand</th>
+        <td mat-cell *matCellDef="let element">{{element.brand}}</td>
+      </ng-container>
+  
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">{{element.price}}</td>
+    </ng-container>
+  
+    <!-- Available Quantity Column -->
+    <ng-container matColumnDef="availablequantity">
+      <th mat-header-cell *matHeaderCellDef>Available Quantity</th>
+      <td mat-cell *matCellDef="let element">{{element.availablequantity}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+        mat-row
+        (click)="clickedRows.add(row)"
+        *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+</div>
+  <!--
+  <div>
+    <h3>
+      Click Log
+    </h3>
+  </div>
+  
+  <div *ngIf="!clickedRows.size">
+    Clicked rows will be logged here
+  </div>
+  
+  <ul>
+    <li *ngFor="let clickedRow of clickedRows">
+      Clicked on {{clickedRow.name}}
+    </li>
+  </ul>
+</div>-->
+</div>

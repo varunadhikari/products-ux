@@ -1,0 +1,63 @@
+<div class="container">
+  <h1>Order Summary</h1>
+
+  <div class="row mb-4" *ngIf="isDataLoaded">
+    <div class="col-md-12">
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>Bill Summary</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Rate</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor = "let row of data.items">
+                  <th scope="row">{{ row.sno }}</th>
+                  <td>{{ row.itemdesc }}</td>
+                  <td>{{ row.rate }}</td>
+                  <td>{{ row.quantity }}</td>
+                  <td>{{ row.price }}</td>
+                </tr>                
+                <tr>
+                  <th></th>
+                  <td></td>
+                  <td></td>
+                  <td class="final-box-text">Amount</td>
+                  <td>
+                    <span class="final-box-text">{{amountBeforeTax}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <td></td>
+                  <td></td>
+                  <td class="final-box-text">Total Amount({{data.tax}}% tax)</td>
+                  <td>
+                    <span class="final-box-text">{{data.totalPrice}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div> 
+
+  <div class="button-padding">
+    <button class="btn btn-primary" (click)=submitOrderdetails() [disabled]="isDisabled">
+      Submit
+    </button>
+  </div>  
+</div>

@@ -1,16 +1,12 @@
-﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Products</a>
-        <a *ngIf="user.role==='ADMIN'" class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
-        <a class="nav-item nav-link" routerLink="/orders/{{user.id}}" routerLinkActive="active">My Orders</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+﻿<div class="wrapper default-theme" [ngClass]="getClasses()">
+    <app-navbar></app-navbar> 
+<main>
+    <app-sidebar *ngIf="user"></app-sidebar>
+    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+      <router-outlet></router-outlet>
+      <hr>
+      <app-footer></app-footer>
     </div>
-</nav>
-
-<!-- main app container -->
-<div class="app-container" [ngClass]="{ 'bg-light': user }">
-    <alert></alert>
-    <router-outlet></router-outlet>
+    <div class="overlay" (click)="toggleSidebar()"></div>
+  </main>
 </div>
