@@ -1,11 +1,11 @@
 <div class="container">
 <h1>Orders</h1>
 <div *ngIf="isDataLoaded">
-    <div fxLayout fxLayoutAlign="center center">
+   <!-- <div fxLayout fxLayoutAlign="center center">
         <mat-form-field fxFlex="40%">
           <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
-    </div>
+    </div> -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
         
         <!-- Position Column -->

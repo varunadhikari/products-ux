@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '@app/_models';
 import { AccountService } from '@app/_services';
 import { AppService } from '@app/_services/app.service';
 
@@ -9,8 +10,12 @@ import { AppService } from '@app/_services/app.service';
 })
 export class NavbarComponent implements OnInit {
 
+  user : User;
+
   constructor(private appService: AppService,
-    private accountService : AccountService) { }
+    private accountService : AccountService) {
+      this.user = this.accountService.userValue;
+     }
   isCollapsed = true;
   ngOnInit() {
   }

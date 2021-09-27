@@ -7,6 +7,7 @@ import { Order } from "@app/_models/order";
 import { OrderProductService } from "@app/_services/order.product.service";
 import { AccountService } from "@app/_services";
 import { OrderDetail } from "@app/_models/order.detail";
+import { User } from "@app/_models";
 
 @Component({
     selector: 'order-summary-component',
@@ -21,6 +22,7 @@ export class OrderSummaryComponent implements OnInit{
     amountBeforeTax: number = 0;
     isDisabled: boolean = false;
     orderToSave: Order;
+    user: User;
 
     constructor(private orderProdservice : OrderProductService,
         private accountService : AccountService,
@@ -40,7 +42,8 @@ export class OrderSummaryComponent implements OnInit{
             tax: null,
             totalAmount :null
         }
-         }
+        this.user = this.accountService.userValue;
+    }
 
     ngOnInit() {        
         const value = this.route.snapshot.paramMap.get('orderId');

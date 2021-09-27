@@ -16,7 +16,7 @@ import { OrderProductService } from '@app/_services/order.product.service';
   templateUrl: 'product.list.component.html',
 })
 export class ProductList implements OnInit{
-  displayedColumns: string[] = ['id', 'name', 'brand', 'price','availablequantity','check'];
+  displayedColumns: string[] = ['id', 'name', 'price','availablequantity','check'];
   dataSource = new MatTableDataSource<Tabledata>();
   clickedRows = new Set<Tabledata>();
   ELEMENT_DATA : Tabledata[] = [];

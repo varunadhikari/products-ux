@@ -12,7 +12,7 @@ const accountModule = () => import('./screens/account/account.module').then(x =>
 const usersModule = () => import('./screens/users/users.module').then(x => x.UsersModule);
 
 const routes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },    
     { path: 'products', component: ProductList, canActivate: [AuthGuard] },
     { path: 'orders/:userId', component: OrderComponent, canActivate: [AuthGuard] },
