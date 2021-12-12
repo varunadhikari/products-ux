@@ -25,7 +25,7 @@
                   <td>{{ row.itemdesc }}</td>
                   <td>{{ row.rate }}</td>
                   <td>{{ row.quantity }}</td>
-                  <td>{{ row.price }}</td>
+                  <td>{{ row.price | currency: 'INR':'symbol'}}</td>
                 </tr>                
                 <tr>
                   <th></th>
@@ -33,7 +33,7 @@
                   <td></td>
                   <td class="final-box-text">Amount</td>
                   <td>
-                    <span class="final-box-text">{{amountBeforeTax}}</span>
+                    <span class="final-box-text">{{amountBeforeTax | currency: 'INR':'symbol'}}</span>
                   </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                   <td></td>
                   <td class="final-box-text">Total Amount({{data.tax}}% tax)</td>
                   <td>
-                    <span class="final-box-text">{{data.totalPrice}}</span>
+                    <span class="final-box-text">{{data.totalPrice | currency: 'INR':'symbol'}}</span>
                   </td>
                 </tr>
               </tbody>

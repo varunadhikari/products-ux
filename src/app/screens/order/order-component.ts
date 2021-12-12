@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Order } from "@app/_models/order";
 import { AccountService } from "@app/_services";
 import { OrderProductService } from "@app/_services/order.product.service";
+import { DatePipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'order-component',
@@ -11,7 +13,7 @@ import { OrderProductService } from "@app/_services/order.product.service";
   })
 export class OrderComponent implements OnInit{
 
-    displayedColumns: string[] = ['id', 'status', 'orderDate', 'tax','totalAmount'];
+    displayedColumns: string[] = ['id', 'status', 'orderDate','totalAmount'];
     dataSource = new MatTableDataSource<Order>();
     clickedRows = new Set<Order>();
     isDataLoaded : boolean = false;

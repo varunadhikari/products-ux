@@ -6,6 +6,7 @@ import { OrderSummaryItemData } from '@app/_models/order.summary.items';
 import { Tabledata } from '@app/_models/table.data';
 import { AccountService } from '@app/_services';
 import { OrderProductService } from '@app/_services/order.product.service';
+import { CurrencyPipe } from '@angular/common';
 
 
 /**

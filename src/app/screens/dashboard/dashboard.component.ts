@@ -6,6 +6,7 @@ import { OrderSummaryItemData } from '@app/_models/order.summary.items';
 import { Tabledata } from '@app/_models/table.data';
 import { AccountService } from '@app/_services';
 import { OrderProductService } from '@app/_services/order.product.service';
+import { CurrencyPipe } from '@angular/common';
 
 
 /**
@@ -16,7 +17,8 @@ import { OrderProductService } from '@app/_services/order.product.service';
   templateUrl: 'dashboard.component.html',
 })
 export class DashboardComponent implements OnInit{
-  displayedColumns: string[] = ['id', 'name', 'brand', 'price','availablequantity'];
+  //displayedColumns: string[] = ['id', 'name', 'brand', 'price','availablequantity'];
+  displayedColumns: string[] = ['id', 'name', 'price','availablequantity'];
   dataSource = new MatTableDataSource<Tabledata>();
   clickedRows = new Set<Tabledata>();
   ELEMENT_DATA : Tabledata[] = [];

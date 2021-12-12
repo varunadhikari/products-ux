@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Orders</h1>
+<h1 class="mb-4 text-muted">Orders</h1>
 <div *ngIf="isDataLoaded">
    <!-- <div fxLayout fxLayoutAlign="center center">
         <mat-form-field fxFlex="40%">
@@ -23,19 +23,19 @@
         <!-- Brand Column -->
         <ng-container matColumnDef="orderDate">
             <th mat-header-cell *matHeaderCellDef>Ordered Date</th>
-            <td mat-cell *matCellDef="let element">{{element.orderDate}}</td>
+            <td mat-cell *matCellDef="let element">{{element.orderDate | date:'short':'IST'}}</td>
           </ng-container>
       
-        <!-- Price Column -->
-        <ng-container matColumnDef="tax">
+        <!-- Tax Column -->
+        <!-- <ng-container matColumnDef="tax">
           <th mat-header-cell *matHeaderCellDef>Tax</th>
           <td mat-cell *matCellDef="let element">{{element.tax}}{{"%"}}</td>
-        </ng-container>
+        </ng-container> -->
       
         <!-- Available Quantity Column -->
         <ng-container matColumnDef="totalAmount">
           <th mat-header-cell *matHeaderCellDef>Total Amount</th>
-          <td mat-cell *matCellDef="let element">{{element.totalAmount}}</td>
+          <td mat-cell *matCellDef="let element">{{element.totalAmount | currency: 'INR':'symbol'}}</td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

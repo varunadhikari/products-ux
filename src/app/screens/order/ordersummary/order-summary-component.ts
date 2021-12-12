@@ -8,6 +8,7 @@ import { OrderProductService } from "@app/_services/order.product.service";
 import { AccountService } from "@app/_services";
 import { OrderDetail } from "@app/_models/order.detail";
 import { User } from "@app/_models";
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
     selector: 'order-summary-component',

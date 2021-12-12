@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    window.location.reload();
   }
   toggleSidebarPin() {
     this.appService.toggleSidebarPin();
