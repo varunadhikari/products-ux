@@ -44,6 +44,7 @@ export class ProductList implements OnInit{
 	        //description: p.description,
 	        price: p.price,
 	        availablequantity: p.quantity,
+          quantity:0,
           check : false
         }
         this.ELEMENT_DATA.push(data)});
@@ -64,9 +65,9 @@ export class ProductList implements OnInit{
       orderItem = {
         id: row.id,
         itemdesc : row.name,
-        quantity : row.availablequantity,
+        quantity : row.quantity,
         rate : row.price,
-        price : row.availablequantity * row.price
+        price : row.quantity * row.price
       }
       this.orderDetails.items.push(orderItem);
     }

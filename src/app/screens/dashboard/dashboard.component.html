@@ -1,17 +1,19 @@
 <div class="container">
   <h1 class="mb-4 text-muted">Dashboard </h1>
+  
+  <h2 class="mt-4 text-muted">Orders </h2>
   <div class="row">
 
-    <div class="col-md-6 col-lg-4 mb-4">
+    <div class="col-md-6 col-lg-3 mb-4">
       <div class="card border-0 rounded-0">
         <div class="card-body">
           <div class="card-innerBody d-flex align-items-center">
             <div class="card-icon text-light">
-              <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+              <i class="fas fa-check-square" aria-hidden="true"></i>
             </div>
             <div class="ml-auto">
-              <p class="card-label text-right text-muted">Revenue</p>
-              <h4 class="card-text text-right ">$ 199,099</h4>
+              <p class="card-label text-right text-muted">Approved</p>
+              <h4 class="card-text text-right ">50</h4>
             </div>
           </div>
         </div>
@@ -25,16 +27,16 @@
       </div>
     </div>
 
-    <div class="col-md-6 col-lg-4 mb-4">
+    <div class="col-md-6 col-lg-3 mb-4">
       <div class="card border-0 rounded-0">
         <div class="card-body">
           <div class="card-innerBody d-flex align-items-center">
             <div class="card-icon text-light">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <i class="fas fa-spinner" aria-hidden="true"></i>
             </div>
             <div class="ml-auto">
-              <p class="card-label text-right text-muted">Orders</p>
-              <h4 class="card-text text-right ">2,200</h4>
+              <p class="card-label text-right text-muted">Pending</p>
+              <h4 class="card-text text-right ">60</h4>
             </div>
           </div>
         </div>
@@ -48,16 +50,39 @@
       </div>
     </div>
 
-    <div class="col-md-6 col-lg-4 mb-4">
+    <div class="col-md-6 col-lg-3 mb-4">
       <div class="card border-0 rounded-0">
         <div class="card-body">
           <div class="card-innerBody d-flex align-items-center">
             <div class="card-icon text-light">
-              <i class="fa fa-users" aria-hidden="true"></i>
+              <i class="fas fa-times" aria-hidden="true"></i>
             </div>
             <div class="ml-auto">
-              <p class="card-label text-right text-muted">Distributors</p>
-              <h4 class="card-text text-right ">702,258</h4>
+              <p class="card-label text-right text-muted">Reject</p>
+              <h4 class="card-text text-right ">10</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer d-flex ">
+          <small class="text-muted">Since last month</small>
+          <small class="text-danger ml-auto">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            2,81%
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card border-0 rounded-0">
+        <div class="card-body">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon text-light">
+              <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Totoal</p>
+              <h4 class="card-text text-right ">120</h4>
             </div>
           </div>
         </div>
@@ -73,7 +98,35 @@
 
   </div>
 
+  
+  <div class="card border-0 rounded-0">
+  <div class="card-body" *ngIf="isDataLoaded">
+    <div class="table-responsive-md">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Status</th>
+            <th scope="col">Ordered Date</th>
+            <th scope="col">Distributor</th>
+            <th scope="col">Total Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let row of orders">
+            <th scope="row">{{ row.id }}</th>
+            <td>{{ row.status }}</td>
+            <td>{{ row.orderDate }}</td>
+            <td>{{ row.userId }}</td>
+            <td>{{ row.totalAmount | currency: 'INR':'symbol'}}</td>
+          </tr>                
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
 
+<h2 class="mt-4 text-muted">Products </h2>
 <div *ngIf="isDataLoaded">
 <div fxLayout fxLayoutAlign="center center">
     <mat-form-field fxFlex="80%">

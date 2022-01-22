@@ -24,7 +24,7 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { CollapseModule } from 'ngx-bootstrap';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { SidebarComponent } from './_components/sidebar/sidebar.component';
-import { ProductList } from './screens/products/product.list.component';
+import { ProductList } from './screens/create-order/product.list.component';
 
 @NgModule({
     imports: [

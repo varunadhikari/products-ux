@@ -31,6 +31,12 @@
           <th mat-header-cell *matHeaderCellDef>Tax</th>
           <td mat-cell *matCellDef="let element">{{element.tax}}{{"%"}}</td>
         </ng-container> -->
+
+        <!-- Tax Column -->
+         <ng-container matColumnDef="distributor">
+          <th mat-header-cell *matHeaderCellDef>Distributor</th>
+          <td mat-cell *matCellDef="let element">{{element.userId}}</td>
+        </ng-container>
       
         <!-- Available Quantity Column -->
         <ng-container matColumnDef="totalAmount">

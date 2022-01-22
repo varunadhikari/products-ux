@@ -13,7 +13,7 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Description</th>
+                  <th scope="col">Product</th>
                   <th scope="col">Rate</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Price</th>
@@ -40,7 +40,16 @@
                   <th></th>
                   <td></td>
                   <td></td>
-                  <td class="final-box-text">Total Amount({{data.tax}}% tax)</td>
+                  <td class="final-box-text">Tax({{data.tax}}%)</td>
+                  <td>
+                    <span class="final-box-text">{{((data.tax * amountBeforeTax) / 100) | currency: 'INR':'symbol'}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <td></td>
+                  <td></td>
+                  <td class="final-box-text">Total Amount</td>
                   <td>
                     <span class="final-box-text">{{data.totalPrice | currency: 'INR':'symbol'}}</span>
                   </td>

@@ -30,10 +30,18 @@ export class OrderProductService {
     }
 
     getAllOrders(){
-        return this.http.get<Order[]>(`${environment.apiUrl}/external/order/all`);
+        return this.http.get<Order[]>(`${environment.apiUrl}/external/order/all?days=0`);
     }
 
     getAllOrdersByUserId(id: string){
-        return this.http.get<Order[]>(`${environment.apiUrl}/external/order/user/${id}`);
+        return this.http.get<Order[]>(`${environment.apiUrl}/external/order/user/${id}?days=0`);
+    }
+
+    getAllOrdersByRange(days: number){
+        return this.http.get<Order[]>(`${environment.apiUrl}/external/order/all?days=`+ days);
+    }
+
+    getAllOrdersByUserIdAndRange(id: string,days: number){
+        return this.http.get<Order[]>(`${environment.apiUrl}/external/order/user/${id}?days=`+ days);
     }
 }

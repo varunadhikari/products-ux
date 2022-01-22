@@ -29,7 +29,8 @@
       <li>
         <a href="#" routerLink="/products" routerLinkActive="active">
           <i class="fab fa-product-hunt"></i>
-          <span>Create Order</span>
+          <span *ngIf="user.role === 'ADMIN'">Inventory</span>          
+          <span *ngIf="user.role !== 'ADMIN'">Create Order</span>
         </a>
       </li>
       <li>

@@ -13,7 +13,7 @@ import { CurrencyPipe } from '@angular/common';
   })
 export class OrderComponent implements OnInit{
 
-    displayedColumns: string[] = ['id', 'status', 'orderDate','totalAmount'];
+    displayedColumns: string[] = ['id', 'status', 'orderDate','distributor','totalAmount'];
     dataSource = new MatTableDataSource<Order>();
     clickedRows = new Set<Order>();
     isDataLoaded : boolean = false;

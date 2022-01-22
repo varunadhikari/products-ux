@@ -5,7 +5,7 @@ import { DashboardComponent } from './screens/dashboard/dashboard.component';
 import { HomeComponent } from './screens/home';
 import { OrderComponent } from './screens/order/order-component';
 import { OrderSummaryComponent } from './screens/order/ordersummary/order-summary-component';
-import { ProductList } from './screens/products/product.list.component';
+import { ProductList } from './screens/create-order/product.list.component';
 import { AuthGuard } from './_helpers';
 
 const accountModule = () => import('./screens/account/account.module').then(x => x.AccountModule);
