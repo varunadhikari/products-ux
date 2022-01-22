@@ -25,6 +25,10 @@ export class OrderProductService {
         return this.http.post(`${environment.apiUrl}/external/order`, order);
     }
 
+    updateOrder(order: Order) {
+        return this.http.put(`${environment.apiUrl}/external/order/${order.id}`, order);
+    }
+
     getOrderSummary(id: number){
         return this.http.get<Order>(`${environment.apiUrl}/external/order/${id}`);
     }

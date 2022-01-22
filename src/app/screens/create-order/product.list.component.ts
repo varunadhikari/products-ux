@@ -17,7 +17,8 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: 'product.list.component.html',
 })
 export class ProductList implements OnInit{
-  displayedColumns: string[] = ['id', 'name', 'price','availablequantity','check'];
+  displayedColumnsAdmin: string[] = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate', 'price','dealerPrice','mrp','availablequantity','check'];
+  displayedColumns: string[] = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate','dealerPrice','mrp','availablequantity','check'];
   dataSource = new MatTableDataSource<Tabledata>();
   clickedRows = new Set<Tabledata>();
   ELEMENT_DATA : Tabledata[] = [];
@@ -42,6 +43,12 @@ export class ProductList implements OnInit{
 	        name: p.name,
 	        brand: p.company,
 	        //description: p.description,
+          code: p.code,
+          batch: p.batch,
+          mfgdate: p.mfgDate,
+          expiryDate: p.expiryDate,
+          dealerPrice: p.dealerPrice,
+          mrp: p.mrp,
 	        price: p.price,
 	        availablequantity: p.quantity,
           quantity:0,

@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit{
 	        name: p.name,
 	        brand: p.company,
 	        //description: p.description,
-	        price: p.price,
+	        price: p.dealerPrice,
 	        availablequantity: p.quantity,
           check : false
         }
