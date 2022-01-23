@@ -8,6 +8,7 @@ import { AccountService } from '@app/_services';
 import { OrderProductService } from '@app/_services/order.product.service';
 import { CurrencyPipe } from '@angular/common';
 import { Order } from '@app/_models/order';
+import { OrderCount } from '@app/_models/order.count';
 
 
 /**
@@ -27,6 +28,7 @@ export class DashboardComponent implements OnInit{
   orderDetails : OrderSummaryData;
   userId : string;
   orders : Order[];
+  orderCount : OrderCount;
 
   constructor(private orderProdservice : OrderProductService,
     private accountService: AccountService,
@@ -40,6 +42,10 @@ export class DashboardComponent implements OnInit{
   }
 
   ngOnInit() {
+    const user = this.accountService.userValue;
+    this.orderProdservice.getOrderCount(user.id).subscribe(count => {
+      this.orderCount = count;
+    });
     this.orderProdservice.getAllProducts().subscribe(prods =>{
       prods.forEach((p,i) => {
         const data  = {
@@ -55,7 +61,6 @@ export class DashboardComponent implements OnInit{
         this.isDataLoaded = true        
       this.dataSource.data = this.ELEMENT_DATA;
     })
-      const user = this.accountService.userValue;
       if (user !== undefined && user.role === "ADMIN") {
         this.orderProdservice.getAllOrdersByRange(10).subscribe(orderList => {
           this.orders = orderList;

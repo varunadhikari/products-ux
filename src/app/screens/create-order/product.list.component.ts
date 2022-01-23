@@ -17,7 +17,6 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: 'product.list.component.html',
 })
 export class ProductList implements OnInit{
-  displayedColumnsAdmin: string[] = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate', 'price','dealerPrice','mrp','availablequantity','check'];
   displayedColumns: string[] = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate','dealerPrice','mrp','availablequantity','check'];
   dataSource = new MatTableDataSource<Tabledata>();
   clickedRows = new Set<Tabledata>();
@@ -36,6 +35,12 @@ export class ProductList implements OnInit{
   }
 
   ngOnInit() {
+    const user = this.accountService.userValue;
+    if(user.role==='ADMIN'){
+      this.displayedColumns = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate', 'price','dealerPrice','mrp','availablequantity','check'];
+    }else{
+      this.displayedColumns = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate','dealerPrice','mrp','availablequantity','check'];
+    }
     this.orderProdservice.getAllProducts().subscribe(prods =>{
       prods.forEach((p,i) => {
         const data  = {

@@ -66,6 +66,9 @@ export class OrderSummaryComponent implements OnInit{
                 });                
                 this.data.items.forEach(d => {
                     this.amountBeforeTax = this.amountBeforeTax + d.price;
+                    this.data.tax = 5;
+                    this.data.totalPrice = this.amountBeforeTax + ((this.data.tax * this.amountBeforeTax) / 100);
+                    this.isDataLoaded = true;
                 });
                 this.isDataLoaded = true;
             })

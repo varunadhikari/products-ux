@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Order } from "@app/_models/order";
+import { OrderCount } from "@app/_models/order.count";
 import { Product } from "@app/_models/product";
 import { environment } from '@environments/environment';
 
@@ -47,5 +48,9 @@ export class OrderProductService {
 
     getAllOrdersByUserIdAndRange(id: string,days: number){
         return this.http.get<Order[]>(`${environment.apiUrl}/external/order/user/${id}?days=`+ days);
+    }
+
+    getOrderCount(id: string){
+        return this.http.get<OrderCount>(`${environment.apiUrl}/external/order/status/${id}`);
     }
 }
