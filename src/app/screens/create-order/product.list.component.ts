@@ -7,6 +7,7 @@ import { Tabledata } from '@app/_models/table.data';
 import { AccountService } from '@app/_services';
 import { OrderProductService } from '@app/_services/order.product.service';
 import { CurrencyPipe } from '@angular/common';
+import { User } from '@app/_models';
 
 
 /**
@@ -23,6 +24,7 @@ export class ProductList implements OnInit{
   ELEMENT_DATA : Tabledata[] = [];
   isDataLoaded : boolean = false;
   orderDetails : OrderSummaryData;
+  user: User;
 
   constructor(private orderProdservice : OrderProductService,
     private accountService: AccountService,
@@ -35,8 +37,8 @@ export class ProductList implements OnInit{
   }
 
   ngOnInit() {
-    const user = this.accountService.userValue;
-    if(user.role==='ADMIN'){
+    this.user = this.accountService.userValue;
+    if(this.user.role==='ADMIN'){
       this.displayedColumns = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate', 'price','dealerPrice','mrp','availablequantity','check'];
     }else{
       this.displayedColumns = ['id', 'name', 'code', 'batch', 'mfdate', 'expdate','dealerPrice','mrp','availablequantity','check'];

@@ -95,7 +95,7 @@ export class OrderSummaryComponent implements OnInit{
             userId: user,
             orderDate: new Date(),
             orderDetailList: [],
-            status: "ORDERED",
+            status: "Ordered",
             tax: this.data.tax,
             totalAmount :this.data.totalPrice
             }
