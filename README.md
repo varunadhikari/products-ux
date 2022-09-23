@@ -1,3 +1,4 @@
+An Order Management Tool Developed in Angular.
 
 Install all required npm packages by running npm install or npm i from the command line in the project root folder (where the package.json is located).
 
